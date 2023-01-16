@@ -66,15 +66,10 @@ class MainView extends StatelessWidget {
         title: const Text('Instant-gram'),
       ),
       body: Consumer(
-        builder: (_, ref, child) {
+        builder: (context, ref, child) {
           return TextButton(
             onPressed: () async {
-              LoadingScreen.instance().show(
-                context: context,
-                text: 'Hello World',
-              );
-
-              // await ref.read(authStateProvider.notifier).logOut();
+              await ref.read(authStateProvider.notifier).logOut();
             },
             child: const Text('Log out'),
           );
